@@ -1,0 +1,28 @@
+server:
+  port: 8080
+mybatis:
+  mapper-locations: # 所有的mapper映射文件
+  - classpath:mapper/*.xml
+spring:
+  application:
+    name: src
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource # 配置当前要使用的数据源的操作类型
+    driver-class-name: com.mysql.cj.jdbc.Driver # 配置MySQL的驱动程序类
+    url: jdbc:mysql://localhost:3306/userinfo?serverTimezone=GMT%2B8 # 数据库连接地址
+    username: root  # 数据库用户名
+    password: Gao20040701 # 数据库连接密码
+
+eureka:
+  client: # 客户端进行Eureka注册的配置
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://admin:Gao20040701@eureka1:7001/eureka
+  instance:
+    instance-id: userinfo-mysql-controller
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 2 # 设置心跳的时间间隔（默认是30秒）
+    lease-expiration-duration-in-seconds: 5  # 如果现在超过了5秒的间隔（默认是90秒）
+
+
+

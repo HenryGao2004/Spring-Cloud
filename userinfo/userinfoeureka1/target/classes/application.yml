@@ -1,0 +1,27 @@
+server:
+  port: 7001
+eureka:
+  server:
+    eviction-interval-timer-in-ms: 1000   #设置清理的间隔时间，而后这个时间使用的是毫秒单位（默认是60秒）
+    enable-self-preservation: true #设置为false表示关闭保护模式
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://admin:Gao20040701@eureka1:7001/eureka
+  instance: # eureak实例定义
+    hostname: eureka1 # 定义 Eureka 实例所在的主机名称
+
+spring:
+  security:
+    user:
+      name: admin
+      password: Gao20040701
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource # 配置当前要使用的数据源的操作类型
+    driver-class-name: com.mysql.cj.jdbc.Driver # 配置MySQL的驱动程序类
+    url: jdbc:mysql://localhost:3306/userinfo?serverTimezone=GMT%2B8 # 数据库连接地址
+    username: root # 数据库用户名
+    password: Gao20040701 # 数据库连接密码

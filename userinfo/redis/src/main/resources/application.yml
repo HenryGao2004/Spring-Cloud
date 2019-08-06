@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: redis
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource # 配置当前要使用的数据源的操作类型
+    driver-class-name: com.mysql.cj.jdbc.Driver # 配置MySQL的驱动程序类
+    url: jdbc:mysql://localhost:3306/userinfo?serverTimezone=GMT%2B8 # 数据库连接地址
+    username: root  # 数据库用户名
+    password: Gao20040701 # 数据库连接密码
+  profiles:
+    active: redis
+  redis:
+    host: 192.168.99.100
